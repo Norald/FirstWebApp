@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" >
+    <!--<?xml version="1.0" encoding="UTF-8"?>-->
+    <!--<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+    <!--xmlns="http://java.sun.com/xml/ns/javaee"-->
+    <!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"-->
+    <!--version="3.0">-->
+
+<!--Эта байда добавляет в любой файл в папке Page хедер и футер-->
+    <jsp-config>
+        <jsp-property-group>
+            <display-name>header_and_footer</display-name>
+            <url-pattern>/pages/*</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+
+    <listener>
+        <description>HttpSessionListener</description>
+        <listener-class>listeners.SessionListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listeners.ContextListener</listener-class>
+    </listener>
+
+</web-app>
